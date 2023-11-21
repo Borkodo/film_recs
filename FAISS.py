@@ -102,7 +102,6 @@ def find_similar_users(target_user_id, user_vectors_data):
         for user_id, user_vector in user_vectors_data.items()
         if user_id != target_user_id
     ]
-    # Sort users based on similarity and return the top user_ids
     return sorted(similarities, key=lambda x: x[1], reverse=True)[:100]
 
 
@@ -173,7 +172,6 @@ def main():
         print("Saving user vectors for future use...")
         save_user_vectors(user_vectors, user_vectors_path)
 
-    # Input user ID
     while True:
         user_input_id = int(input("What user_id do you want to search?"))
         if user_input_id in user_vectors:
